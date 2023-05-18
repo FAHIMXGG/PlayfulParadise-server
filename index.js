@@ -55,11 +55,18 @@ async function run() {
       //console.log(req.query.email);
       let query = {};
       if (req.query?.email) {
-          query = { email: req.query.email }
+        query = { email: req.query.email }
       }
       const result = await toysCollection.find(query).toArray();
       res.send(result);
-  })
+    })
+
+    app.delete('/toys/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) }
+      const result = await toysCollection.deleteOne(query);
+      res.send(result);
+    })
 
 
 
