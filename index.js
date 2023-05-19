@@ -91,6 +91,26 @@ async function run() {
   })
 
 
+  
+
+  //search
+  app.get('/search', async (req, res) => {
+    const searchTerm = req.query.query;
+    const regex = new RegExp(searchTerm, 'i');
+    const query = { ProductName: { $regex: regex } };
+
+    try {
+      const result = await toysCollection.find(query).toArray();
+      res.send(result);
+    } catch (error) {
+      console.error('Error searching for documents:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+
+  //api http://localhost:5000/search?query=
+
+
 
 
     // Send a ping to confirm a successful connection
