@@ -20,16 +20,18 @@ const client = new MongoClient(uri, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  },
+  }
+  // ,
   
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-    // maxPoolSize: 10,
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true,
+  //   maxPoolSize: 10,
   
 });
 
 async function run() {
   try {
+    client.connect();
     // Connect the client to the server	(optional starting in v4.7)
     // client.connect((err) =>{
     //   if (err) {
