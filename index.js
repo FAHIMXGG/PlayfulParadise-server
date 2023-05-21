@@ -22,21 +22,21 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
   
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    maxPoolSize: 10,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+    // maxPoolSize: 10,
   
 });
 
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    client.connect((err) =>{
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+    // client.connect((err) =>{
+    //   if (err) {
+    //     console.error(err);
+    //     return;
+    //   }
+    // });
 
     //database operations
     const toysCollection = client.db('toys').collection('toysCollections');
